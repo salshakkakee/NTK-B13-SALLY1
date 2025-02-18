@@ -13,6 +13,13 @@ public class Exercise3Test extends Hooks {
 	        // Set the path to the msedgedriver executable
 	        System.setProperty("webdriver.edge.driver", "C:\\msedgedriver.exe");
 
+	       
+	        driver.get("https://demo.nopcommerce.com/");
+	        Thread.sleep(5000);
+
+	        WebElement register = driver.findElement(By.linkText("Register"));
+	        register.click();
+	        Thread.sleep(3000);
 	        // Create EdgeOptions and set the detach option
 	        EdgeOptions options = new EdgeOptions();
 	        options.setCapability("detach", true);
@@ -20,13 +27,11 @@ public class Exercise3Test extends Hooks {
 	        // Create a new instance of the Edge driver with the options
 	        WebDriver driver = new EdgeDriver(options);
 
-	        driver.get("https://demo.nopcommerce.com/");
-	        Thread.sleep(5000);
-
-	        WebElement register = driver.findElement(By.linkText("Register"));
-	        register.click();
-	        Thread.sleep(3000);
-
+	        Thread.sleep(10000);
+	        
+	        driver.get("https://demo.nopcommerce.com/register?returnUrl=%2F");
+	        
+	        System.out.println("sssssssss");
 	        driver.getTitle();
 	        System.out.println(driver.getTitle());
 
@@ -36,15 +41,20 @@ public class Exercise3Test extends Hooks {
 	            System.out.println("Page Title is not verified");
 	        }
 	        Thread.sleep(10000);
-
+	        
+	        
+	        System.out.println("sssssssss");
 	        WebElement fGenderRadio = driver.findElement(By.id("gender-female"));
 	        fGenderRadio.click();
 	        Thread.sleep(500);
-
+	        
+	        
+	        System.out.println("sssssssss");
 	        WebElement firstName = driver.findElement(By.id("FirstName"));
 	        firstName.sendKeys("Sally");
 	        Thread.sleep(300);
 
+	        System.out.println("sssssssss");
 	        WebElement email = driver.findElement(By.id("Email"));
 	        email.sendKeys("sally@gamil.com");
 	        Thread.sleep(500);
